@@ -1,0 +1,94 @@
+{
+	"name": "PolicyToODS",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Parquet10",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Parquet7",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          CountryName as string,",
+				"          CountryCode as string,",
+				"          RegionName as string,",
+				"          RegionCode as string,",
+				"          Jurisdiction as string,",
+				"          Date as timestamp,",
+				"          C1_SchoolClosing as double,",
+				"          C1_Flag as double,",
+				"          C2_WorkplaceClosing as double,",
+				"          C2_Flag as double,",
+				"          C3_CancelPublicEvents as double,",
+				"          C3_Flag as double,",
+				"          C4_RestrictionsOnGatherings as double,",
+				"          C4_Flag as double,",
+				"          C5_ClosePublicTransport as double,",
+				"          C5_Flag as double,",
+				"          C6_StayAtHomeRequirements as double,",
+				"          C6_Flag as double,",
+				"          C7_RestrictionsOnInternalMovement as double,",
+				"          C7_Flag as double,",
+				"          C8_InternationalTravelControls as double,",
+				"          E1_IncomeSupport as double,",
+				"          E1_Flag as double,",
+				"          E2_DebtContractRelief as double,",
+				"          E3_FiscalMeasures as double,",
+				"          E4_InternationalSupport as double,",
+				"          H1_PublicinformationCampaigns as double,",
+				"          H1_Flag as double,",
+				"          H2_TestingPolicy as double,",
+				"          H3_ContactTracing as double,",
+				"          H4_EmergencyInvestmentInHealthcare as double,",
+				"          H5_InvestmentInVaccines as double,",
+				"          H6_FacialCoverings as double,",
+				"          H6_Flag as double,",
+				"          H7_VaccinationPolicy as double,",
+				"          H7_Flag as double,",
+				"          H8_ProtectionOfElderlyPeople as double,",
+				"          H8_Flag as double,",
+				"          M1_Wildcard as double,",
+				"          StringencyIndex as double,",
+				"          StringencyIndexForDisplay as double,",
+				"          StringencyLegacyIndex as double,",
+				"          StringencyLegacyIndexForDisplay as double,",
+				"          GovernmentResponseIndex as double,",
+				"          GovernmentResponseIndexForDisplay as double,",
+				"          ContainmentHealthIndex as double,",
+				"          ContainmentHealthIndexForDisplay as double,",
+				"          EconomicSupportIndex as double,",
+				"          EconomicSupportIndexForDisplay as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> source1",
+				"source1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     partitionFileNames:['Policies.parquet'],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
+				"     partitionBy('hash', 1),",
+				"     preCommands: [],",
+				"     postCommands: []) ~> sink1"
+			]
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "team14datafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5de929e0-eae3-4edd-8cad-4edad37ed086",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}
