@@ -98,13 +98,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary2",
+						"referenceName": "Binary1",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "Binary1",
+						"referenceName": "Binary2",
 						"type": "DatasetReference"
 					}
 				]
@@ -149,7 +149,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Binary1",
+						"referenceName": "Binary2",
 						"type": "DatasetReference"
 					}
 				],
